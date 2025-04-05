@@ -13,6 +13,15 @@ export default function Form(){
     const [resultado, setResultado] = useState(null);
     const [cotacao, setCotacao] = useState(null);
 
+
+    const handleChange = (texto) => {
+        const textoComPonto = texto.replace(',', '.');
+        setReal(textoComPonto);
+      };
+
+
+
+
     //Funcao que é chamada pelo botão da tela
     function validar(){
 
@@ -44,6 +53,10 @@ export default function Form(){
         console.log(cotacao)
         console.log(msg)
         
+
+        
+
+
         
         return setResultado((real/cotacao).toFixed(2))
         
@@ -64,7 +77,7 @@ export default function Form(){
                     style={styles.TextInput}
                     keyboardType="numeric"
                     value={real}
-                    onChangeText={setReal}
+                    onChangeText={handleChange}
                     placeholder="Ex: 6.00"
                 />
 
